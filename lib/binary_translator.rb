@@ -37,4 +37,12 @@ class BinaryTranslator
       @alpha_to_binary[letter]
     end.join
   end
+
+  def translate_to_text(message)
+    inverted_map = @alpha_to_binary.invert
+    split = message.scan(/....../)
+    split.map do |num|
+      inverted_map[num]
+    end.join
+  end
 end
