@@ -18,12 +18,18 @@ class BinaryTranslatorTest < Minitest::Test
     assert_equal "010100010101010010001001001110000111", bt.translate("turing")
   end
 
-  def test_it_can_tranlate_capital_letters
+  def test_it_can_translate_capital_letters
     bt = BinaryTranslator.new
 
     assert_equal "000001", bt.translate("A")
     assert_equal "010100010101010010001001001110000111", bt.translate("turing")
     assert_equal "010100010101010010001001001110000111", bt.translate("TURING")
+  end
+
+  def test_it_can_translate_spaces
+    bt = BinaryTranslator.new
+
+    assert_equal "00000", bt.translate(" ")
   end
 
 end
