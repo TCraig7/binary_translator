@@ -29,7 +29,17 @@ class BinaryTranslatorTest < Minitest::Test
   def test_it_can_translate_spaces
     bt = BinaryTranslator.new
 
-    assert_equal "00000", bt.translate(" ")
+    assert_equal "000000", bt.translate(" ")
+  end
+
+  def test_it_does_not_translate_symbols
+    bt = BinaryTranslator.new
+
+    expected = "001000000101001100001100001111000000010111001111010010001100000100"
+
+    assert_equal "", bt.translate("!")
+    assert_equal "", bt.translate("!@{$#%^&*()}")
+    assert_equal expected, bt.translate("Hello World!")
   end
 
 end
