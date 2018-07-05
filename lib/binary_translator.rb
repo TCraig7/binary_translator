@@ -32,9 +32,10 @@ class BinaryTranslator
   end
 
   def translate(message)
+    alpha = @alpha_to_binary
     split = message.downcase.split(//)
     split.map do |letter|
-      @alpha_to_binary[letter]
+      alpha[letter]
     end.join
   end
 

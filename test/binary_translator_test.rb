@@ -45,9 +45,12 @@ class BinaryTranslatorTest < Minitest::Test
   def test_it_can_translate_from_binary_to_alpha
     bt = BinaryTranslator.new
 
-    message = "001000000101001100001100001111000000010111001111010010001100000100"
+    message_1 = "001000000101001100001100001111000000010111001111010010001100000100"
 
-    assert_equal "hello world", bt.translate_to_text(message)
+    message_2= "000000000000001000000101001100001100001111000000000000010111001111010010001100000100000000000000"
+
+    assert_equal "hello world", bt.translate_to_text(message_1)
+    assert_equal "  hello  world  ", bt.translate_to_text(message_2)
   end
 
 end
